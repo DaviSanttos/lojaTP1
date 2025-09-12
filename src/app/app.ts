@@ -11,5 +11,9 @@ import { Banner } from "./core/banner/banner";
   styleUrl: './app.css'
 })
 export class App {
-  // protected readonly title = signal('lojatp1');
+  sobre?: string;
+  
+  receberSobre(texto: string) {
+    this.sobre = texto;
+  }
 }

@@ -1,7 +1,7 @@
-<app-header></app-header>
+<app-header [tituloLoja]="'Teste 2'"
+            (textoSobre)="receberSobre($event)"></app-header>
 <app-banner></app-banner>
 <div class="container">
-  <h2>Angular h2</h2>
-  <span>Em construção</span>
+  {{ sobre }}
 </div>
 <app-footer></app-footer>
