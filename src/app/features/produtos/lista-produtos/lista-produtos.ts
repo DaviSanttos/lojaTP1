@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Produto } from '../../../model/produto';
 
 @Component({
@@ -40,4 +40,22 @@ export class ListaProdutos {
   onAddToCart(produto: { id: number; quantity: number }) {
     alert(`Carrinho ainda não implementado. Quantidade: ${produto.quantity}`);
   }
+
+  //...
+    //flag de exibir apenas prod. em promoção
+    apenasPromo = signal(false);
+
+    //cria a lista de produtos a ser exibida
+    prodExibidos = computed(() =>
+      this.apenasPromo()
+        ? this.produtos.filter(p => p.promo)
+        : this.produtos
+    );
+
+    //define se exibe apenas promo ou não
+    alternarPromo() {
+      this.apenasPromo.update(v => !v);
+    }
+    //...
+
 }
